@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kammavar Cultural Academy - Preserving Heritage, Empowering Community</title>
+    <meta name="description" content="Kammavar Cultural Academy is a government registered charitable trust dedicated to preserving the rich culture and traditions of the Kammavar Naidu community." />
+    <meta name="keywords" content="Kammavar Cultural Academy, Tamil Nadu, Cultural Heritage, Community Support, Education, Legal Aid" />
+    <meta name="author" content="Kammavar Cultural Academy" />
+   
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kammavarculturalacademy.org/" />
+    <meta property="og:title" content="Kammavar Cultural Academy - Preserving Heritage, Empowering Community" />
+    <meta property="og:description" content="A government registered charitable trust dedicated to preserving the rich culture and traditions of the Kammavar Naidu community." />
+   
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://kammavarculturalacademy.org/" />
+    <meta property="twitter:title" content="Kammavar Cultural Academy - Preserving Heritage, Empowering Community" />
+    <meta property="twitter:description" content="A government registered charitable trust dedicated to preserving the rich culture and traditions of the Kammavar Naidu community." />
+   
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <style>
+        :root {
+            --primary-blue: #3b82f6;
+            --secondary-blue: #1e40af;
+            --accent-blue: #60a5fa;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --black: #000000;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+            --hover-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-blue);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .company-info h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .company-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            padding: 0.5rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 1rem;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--hover-bg);
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 4xl;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        .hero .highlight {
+            color: var(--primary-blue);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-divider {
+            width: 6rem;
+            height: 0.25rem;
+            background: var(--primary-blue);
+            margin: 0 auto 1.5rem;
+            border-radius: 0.125rem;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content {
+            space-y: 1.5rem;
+        }
+
+        /* Simple About Items without container styling */
+        .about-item {
+            margin-bottom: 3rem;
+        }
+
+        .about-item-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-item-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-blue);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .about-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .about-item p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-left: 4rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 24rem;
+            object-fit: cover;
+        }
+
+        .about-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            display: flex;
+            align-items: end;
+            padding: 2rem;
+        }
+
+        .about-image-content h3 {
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-image-content p {
+            color: var(--gray-200);
+            font-size: 1.125rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-secondary);
+        }
+
+        .services-gallery {
+            position: relative;
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .gallery-container {
+            position: relative;
+            height: 32rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-slide img:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: end;
+            padding: 2rem;
+        }
+
+        .gallery-content h3 {
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-content p {
+            color: var(--gray-200);
+            font-size: 1.125rem;
+            max-width: 32rem;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-nav:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-prev {
+            left: 1rem;
+        }
+
+        .gallery-next {
+            right: 1rem;
+        }
+
+        .gallery-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: var(--gray-300);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--primary-blue);
+            transform: scale(1.25);
+        }
+
+        .indicator:hover {
+            background: var(--primary-blue);
+            transform: scale(1.1);
+        }
+
+        /* Members Section */
+        .members {
+            background: var(--bg-primary);
+        }
+
+        .members-carousel {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .members-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .member-card {
+            flex: 0 0 auto;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            border: 3px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .member-card:hover .member-photo {
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .member-role {
+            color: var(--primary-blue);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 0.5rem;
+        }
+
+        .carousel-next {
+            right: 0.5rem;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: var(--gray-300);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: var(--primary-blue);
+            transform: scale(1.25);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            space-y: 2rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-blue);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p,
+        .contact-details a,
+        .contact-details button {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        .contact-details a:hover,
+        .contact-details button:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Form Styles */
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-section p,
+        .footer-section a,
+        .footer-section button {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            line-height: 1.6;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: inherit;
+        }
+
+        .footer-section a:hover,
+        .footer-section button:hover {
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a,
+        .footer-links button {
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+
+        /* Fixed Elements */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-blue);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+            background: var(--secondary-blue);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -3rem;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .fade-in-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .fade-in-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .member-card {
+                width: 200px;
+            }
+
+            .member-photo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .gallery-container {
+                height: 20rem;
+            }
+
+            .gallery-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .gallery-content p {
+                font-size: 1rem;
+            }
+
+            .contact-form,
+            .contact-card {
+                padding: 1.5rem;
+            }
+
+            .whatsapp-btn {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.25rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .scroll-top {
+                bottom: 1rem;
+                left: 1rem;
+            }
+
+            /* Mobile Members Layout */
+            .members-container {
+                gap: 0;
+                padding: 0;
+                justify-content: flex-start;
+            }
+
+            .member-card {
+                width: 100%;
+                flex: 0 0 100%;
+                max-width: none;
+                padding: 0 2rem;
+                box-sizing: border-box;
+            }
+
+            .member-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .carousel-prev {
+                left: 0;
+            }
+
+            .carousel-next {
+                right: 0;
+            }
+
+            .about-item p {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .member-card {
+                padding: 0 1rem;
+            }
+            
+            .nav-container {
+                padding: 0.75rem 0;
+            }
+
+            .logo {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+
+            .company-info h1 {
+                font-size: 1rem;
+            }
+
+            .company-info p {
+                font-size: 0.625rem;
+            }
+
+            .hero {
+                padding: 5rem 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .contact-form,
+            .contact-card {
+                padding: 1rem;
+            }
+
+            .gallery-container {
+                height: 16rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .member-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .member-name {
+                font-size: 1rem;
+            }
+
+            .member-role {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Desktop Members Layout */
+        @media (min-width: 769px) {
+            .member-card {
+                width: 200px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles */
+        button:focus,
+        a:focus,
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo-section">
+                    <div class="logo">KCA</div>
+                    <div class="company-info">
+                        <h1>Kammavar Cultural Academy</h1>
+                        <p>Preserving Heritage, Empowering Community</p>
+                    </div>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#members">Members</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="nav-controls">
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <div class="mobile-menu" id="mobileMenu">
+                    <ul>
+                        <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+                        <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+                        <li><a href="#members" onclick="closeMobileMenu()">Members</a></li>
+                        <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">
+                    Preserving Heritage, <span class="highlight">Empowering Community</span>
+                </h1>
+                <p class="fade-in fade-in-delay-1">
+                    The Kammavar Naidu community is a proud and historic Tamil-speaking people of Tamil Nadu with a rich legacy of valor and cultural heritage. Rooted in dharma and sacrifice, we descend from dynasties that have protected the land for over 700 years.
+                </p>
+                <div class="hero-buttons fade-in fade-in-delay-2">
+                    <a href="#about" class="btn btn-primary">
+                        Learn More
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">Join Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About Our Mission</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                 To empower Kammavar children through education, leadership, and service to the nation with honesty and integrity.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <div class="about-item">
+                        <div class="about-item-header">
+                            <div class="about-item-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Our Heritage</h3>
+                        </div>
+                        <p>
+                            We bow to our Kammakula Dhevathaa Sri Renugadevi Thalli. We are born into a dynasty that defended the nation and dharma for over 700 years, sacrificing countless lives. We gratefully remember the rulers of the Satavahana, Kakatiya, and Vijayanagara empires, and all who protected Tamil people and land, including Veera Kumara Kambanna and Thirumalai Nayakkar.
+                        </p>
+                    </div>
+
+                    <div class="about-item">
+                        <div class="about-item-header">
+                            <div class="about-item-icon">
+                                <i class="fas fa-target"></i>
+                            </div>
+                            <h3>Our Mission</h3>
+                        </div>
+                        <p><strong>Kammavar Cultural Academy</strong> is a government-registered charitable trust dedicated to preserving the rich culture and traditions of the Kammavar Naidu community in Tamil Nadu. It also works for the legal protection and secure future of Kammavar children, promoting education and encouraging them to serve the nation with honesty in high positions of government.
+                        </p>
+                    </div>
+
+                    <div class="about-item">
+                        <div class="about-item-header">
+                            <div class="about-item-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Our Values</h3>
+                        </div>
+                        <p>
+                           Kammavar Cultural Academy also works the legal protection of the kammavar people and the safe future of Kammavar children. Our foundation is conducting various programs emphasising that Kammavar children should study well, work in high positions of power in the central and state governments, and serve the people and our nation in an honest manner.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-image fade-in fade-in-delay-1">
+                    <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Cultural Heritage">
+                    <div class="about-image-overlay">
+                        <div class="about-image-content">
+                            <h3>Preserving Traditions</h3>
+                            <p>For Future Generations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Our Services</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Comprehensive support and services for the Kammavar community
+                </p>
+            </div>
+
+            <div class="services-gallery fade-in fade-in-delay-1">
+                <div class="gallery-container">
+                    <div class="gallery-slide active">
+                        <img src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cultural Programs" onclick="openModal(this.src)">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h3>Cultural Programs</h3>
+                                <p>Preserving and promoting traditional Kammavar culture through various programs and events.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Educational Services" onclick="openModal(this.src)">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h3>Educational Services</h3>
+                                <p>Supporting education and skill development for Kammavar community members.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Community Support" onclick="openModal(this.src)">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h3>Community Support</h3>
+                                <p>Providing assistance and support to community members in need.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Youth Development" onclick="openModal(this.src)">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h3>Youth Development</h3>
+                                <p>Empowering young Kammavar individuals through mentorship and guidance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Legal Aid" onclick="openModal(this.src)">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h3>Legal Aid</h3>
+                                <p>Providing legal protection and support for community rights and welfare.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="gallery-nav gallery-prev" onclick="changeSlide(-1)" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav gallery-next" onclick="changeSlide(1)" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="gallery-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                    <span class="indicator" onclick="currentSlide(4)"></span>
+                    <span class="indicator" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members" class="section members">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Committee Members</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Meet our dedicated team working tirelessly for our community
+                </p>
+            </div>
+
+            <div class="members-carousel fade-in fade-in-delay-1">
+                <div class="members-container" id="membersContainer">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Rajesh Kumar">
+                        </div>
+                        <h3 class="member-name">Rajesh Kumar</h3>
+                        <p class="member-role">President</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Sita Naidu">
+                        </div>
+                        <h3 class="member-name">Sita Naidu</h3>
+                        <p class="member-role">Vice President</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Vijay Patel">
+                        </div>
+                        <h3 class="member-name">Vijay Patel</h3>
+                        <p class="member-role">Secretary</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Meera Reddy">
+                        </div>
+                        <h3 class="member-name">Meera Reddy</h3>
+                        <p class="member-role">Treasurer</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Anil Kumar">
+                        </div>
+                        <h3 class="member-name">Anil Kumar</h3>
+                        <p class="member-role">Member</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Priya Devi">
+                        </div>
+                        <h3 class="member-name">Priya Devi</h3>
+                        <p class="member-role">Member</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Ravi Sharma">
+                        </div>
+                        <h3 class="member-name">Ravi Sharma</h3>
+                        <p class="member-role">Member</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Lakshmi Naidu">
+                        </div>
+                        <h3 class="member-name">Lakshmi Naidu</h3>
+                        <p class="member-role">Member</p>
+                    </div>
+                </div>
+
+                <button class="carousel-nav carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous members">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav carousel-next" onclick="moveCarousel(1)" aria-label="Next members">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="carousel-indicators" id="carouselIndicators">
+                    <!-- Indicators will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Contact for Membership & Services</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Get in touch with us to join our community or learn more about our services
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <div class="contact-card">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Get in Touch</h3>
+                       
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <a href="tel:+916374282664">+91 6374282664</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Address</h4>
+                                <button onclick="openGoogleMaps()" style="text-align: left;">
+                                    2/603, Shreya Garden,<br>
+                                    Kurumbapalayam<br>
+                                    Muthugoundenpudur-post<br>
+                                    Sulur tk<br>
+                                    Coimbatore-641402
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:kcafoundation2024@gmail.com">kcafoundation2024@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in fade-in-delay-1">
+                    <form class="contact-form" onsubmit="submitForm(event)">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Membership and Services</h3>
+                       
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <input type="number" id="age" name="age" required placeholder="Enter your age">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address *</label>
+                            <input type="text" id="address" name="address" required placeholder="Enter your address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number *</label>
+                            <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Write here...."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Submit Application
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <div class="logo">KCA</div>
+                        <h3>Kammavar Cultural Academy</h3>
+                    </div>
+                    <p>
+                        A government registered charitable trust dedicated to preserving the rich culture and traditions
+                        of the Kammavar Naidu community while ensuring a bright future for our children.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><button onclick="scrollToSection('about')">About</button></li>
+                        <li><button onclick="scrollToSection('services')">Services</button></li>
+                        <li><button onclick="scrollToSection('members')">Members</button></li>
+                        <li><button onclick="scrollToSection('contact')">Contact</button></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div style="margin-bottom: 0.75rem;">
+                        <a href="tel:+916374282664" style="display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-phone"></i>
+                            +91 6374282664
+                        </a>
+                    </div>
+                    <div style="margin-bottom: 0.75rem;">
+                        <a href="mailto:kcafoundation2024@gmail.com style="display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-envelope"></i>
+                            kcafoundation2024@gmail.com
+                        </a>
+                    </div>
+                    <div>
+                        <button onclick="openGoogleMaps()" style="display: flex; align-items: flex-start; gap: 0.5rem; text-align: left;">
+                            <i class="fas fa-map-marker-alt" style="margin-top: 0.25rem; flex-shrink: 0;"></i>
+                            <span>
+                                2/603, Shreya Garden,<br>
+                                Kurumbapalayam, Muthugoundenpudur-post,<br>
+                                Sulur tk, Coimbatore-641402
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kammavar Cultural Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918248826774" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" src="" alt="Full size image">
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentSlideIndex = 0;
+        let currentCarouselIndex = 0;
+        let membersPerView = 1; // Default to 1 for mobile-first
+        const slides = document.querySelectorAll('.gallery-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const membersContainer = document.getElementById('membersContainer');
+        const memberCards = document.querySelectorAll('.member-card');
+        let slideInterval;
+        let carouselInterval;
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const elementPosition = element.offsetTop - headerHeight - 20;
+           
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        // Gallery functionality
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+           
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+           
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+           
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        function autoSlide() {
+            changeSlide(1);
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(autoSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        // Members carousel functionality
+        function updateMembersPerView() {
+            if (window.innerWidth < 769) {
+                membersPerView = 1; // Mobile: 1 member at a time
+            } else if (window.innerWidth < 1024) {
+                membersPerView = 3; // Tablet: 3 members
+            } else {
+                membersPerView = 4; // Desktop: 4 members
+            }
+        }
+
+        function updateCarouselIndicators() {
+            const indicatorsContainer = document.getElementById('carouselIndicators');
+            const totalSlides = Math.ceil(memberCards.length / membersPerView);
+           
+            indicatorsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('span');
+                indicator.className = `carousel-indicator ${i === currentCarouselIndex ? 'active' : ''}`;
+                indicator.onclick = () => goToCarouselSlide(i);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        function updateCarouselPosition() {
+            let cardWidth, gap;
+            
+            if (window.innerWidth < 769) {
+                // Mobile: full width single member
+                cardWidth = membersContainer.offsetWidth;
+                gap = 0;
+            } else {
+                // Desktop: multiple members
+                cardWidth = 200 + 32; // card width + gap
+                gap = 0;
+            }
+            
+            const offset = currentCarouselIndex * (cardWidth + gap);
+            membersContainer.style.transform = `translateX(-${offset}px)`;
+           
+            // Update indicators
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentCarouselIndex);
+            });
+        }
+
+        function moveCarousel(direction) {
+            const totalSlides = Math.ceil(memberCards.length / membersPerView);
+            currentCarouselIndex += direction;
+           
+            if (currentCarouselIndex >= totalSlides) {
+                currentCarouselIndex = 0;
+            } else if (currentCarouselIndex < 0) {
+                currentCarouselIndex = totalSlides - 1;
+            }
+           
+            updateCarouselPosition();
+        }
+
+        function goToCarouselSlide(index) {
+            currentCarouselIndex = index;
+            updateCarouselPosition();
+        }
+
+        function autoMoveCarousel() {
+            moveCarousel(1);
+        }
+
+        function startCarouselAutoPlay() {
+            carouselInterval = setInterval(autoMoveCarousel, 4000);
+        }
+
+        function stopCarouselAutoPlay() {
+            clearInterval(carouselInterval);
+        }
+
+        // Google Maps
+        function openGoogleMaps() {
+            const address = "2/603, Shreya Garden, Kurumbapalayam, Muthugoundenpudur-post, Sulur tk, Coimbatore-641402";
+            const encodedAddress = encodeURIComponent(address);
+            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+            window.open(googleMapsUrl, '_blank');
+        }
+
+        // Modal functionality
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImage.src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form submission
+        function submitForm(event) {
+            event.preventDefault();
+           
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+           
+            const subject = 'Membership Application - Kammavar Cultural Academy';
+            const body = `
+Name: ${data.name}
+Age: ${data.age}
+Address: ${data.address}
+Mobile: ${data.mobile}
+Message: ${data.message}
+            `.trim();
+           
+            const mailtoLink = `mailto:kcafoundation2024@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+           
+            alert('Thank you for your application! Your default email client will open to send the message.');
+            event.target.reset();
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+           
+            elements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+               
+                if (elementTop < window.innerHeight - elementVisible) {
+                    if (!element.classList.contains('animated')) {
+                        element.style.animationDelay = `${index * 0.1}s`;
+                        element.classList.add('animated');
+                    }
+                }
+            });
+        }
+
+        // Scroll top button visibility
+        function handleScrollTop() {
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            handleScrollAnimations();
+            startAutoSlide();
+            updateMembersPerView();
+            updateCarouselIndicators();
+            updateCarouselPosition();
+            startCarouselAutoPlay();
+           
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const elementPosition = target.offsetTop - headerHeight - 20;
+                       
+                        window.scrollTo({
+                            top: elementPosition,
+                            behavior: 'smooth'
+                        });
+                       
+                        closeMobileMenu();
+                    }
+                });
+            });
+
+            // Gallery hover events
+            const galleryContainer = document.querySelector('.gallery-container');
+            if (galleryContainer) {
+                galleryContainer.addEventListener('mouseenter', stopAutoSlide);
+                galleryContainer.addEventListener('mouseleave', startAutoSlide);
+            }
+
+            // Carousel hover events
+            const membersCarousel = document.querySelector('.members-carousel');
+            if (membersCarousel) {
+                membersCarousel.addEventListener('mouseenter', stopCarouselAutoPlay);
+                membersCarousel.addEventListener('mouseleave', startCarouselAutoPlay);
+            }
+
+            // Modal click outside to close
+            document.getElementById('imageModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+               
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    closeMobileMenu();
+                } else if (e.key === 'ArrowLeft') {
+                    changeSlide(-1);
+                    moveCarousel(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeSlide(1);
+                    moveCarousel(1);
+                }
+            });
+        });
+
+       
+        window.addEventListener('scroll', function() {
+            handleScrollAnimations();
+            handleScrollTop();
+        });
+
+     
+        window.addEventListener('resize', function() {
+            closeMobileMenu();
+            updateMembersPerView();
+            updateCarouselIndicators();
+            updateCarouselPosition();
+        });
+
+        
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+        
+    </script>
+</body>
+</html>
