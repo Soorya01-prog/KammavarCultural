@@ -30,9 +30,11 @@
    
     <style>
         :root {
-            --primary-blue: #3b82f6;
-            --secondary-blue: #1e40af;
-            --accent-blue: #60a5fa;
+            --primary-green: #22c55e;
+            --secondary-green: #16a34a;
+            --accent-green: #4ade80;
+            --dark-green: #15803d;
+            --light-green: #86efac;
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
@@ -49,6 +51,11 @@
             --white: #ffffff;
             --black: #000000;
             
+            /* Indian Flag Colors */
+            --saffron: #FF9933;
+            --flag-white: #FFFFFF;
+            --flag-green: #138808;
+            
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-tertiary: #f1f5f9;
@@ -58,6 +65,7 @@
             --border-color: #e2e8f0;
             --card-bg: #ffffff;
             --hover-bg: #f8fafc;
+            --navbar-bg: #22c55e;
         }
 
         * {
@@ -101,25 +109,25 @@
         }
 
         .btn-primary {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
         }
 
         .btn-primary:hover {
-            background: var(--secondary-blue);
+            background: var(--secondary-green);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
         }
 
         .btn-secondary {
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
             background: transparent;
         }
 
         .btn-secondary:hover {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
             transform: translateY(-2px);
         }
@@ -130,10 +138,10 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            background: var(--navbar-bg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -149,7 +157,7 @@
             gap: 0.75rem;
         }
 
-        /* Updated Logo Styles - Invisible container, only image shows */
+        /* Updated Logo Styles */
         .logo {
             width: 3rem;
             height: 3rem;
@@ -157,7 +165,6 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            /* Remove background, border, and other visual elements */
             background: none;
             border: none;
             border-radius: 0;
@@ -175,33 +182,49 @@
             transform: scale(1.05);
         }
 
-        /* Fallback text when no image is uploaded */
         .logo-text {
             display: none;
             width: 3rem;
             height: 3rem;
-            background: var(--primary-blue);
+            background: var(--white);
             border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: var(--primary-green);
             font-weight: 700;
             font-size: 1.25rem;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .company-info {
+            position: relative;
+        }
+
+        .company-info .flag-text {
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--saffron) 0%, var(--saffron) 33%, var(--flag-white) 33%, var(--flag-white) 66%, var(--flag-green) 66%, var(--flag-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .company-info h1 {
             font-size: 1.25rem;
             font-weight: 700;
             margin: 0;
-            color: var(--text-primary);
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .company-info p {
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.9);
             margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .nav-menu {
@@ -213,15 +236,17 @@
 
         .nav-menu a {
             text-decoration: none;
-            color: var(--text-secondary);
+            color: var(--white);
             font-weight: 500;
             transition: all 0.3s ease;
             padding: 0.5rem 0;
             position: relative;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .nav-menu a:hover {
-            color: var(--primary-blue);
+            color: var(--flag-white);
+            transform: translateY(-1px);
         }
 
         .nav-menu a::after {
@@ -231,7 +256,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary-blue);
+            background: var(--white);
             transition: width 0.3s ease;
         }
 
@@ -245,7 +270,7 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--text-primary);
+            color: var(--white);
             padding: 0.5rem;
         }
 
@@ -256,8 +281,8 @@
             top: 100%;
             left: 0;
             width: 100%;
-            background: var(--card-bg);
-            border-top: 1px solid var(--border-color);
+            background: var(--navbar-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             animation: slideDown 0.3s ease;
         }
@@ -280,15 +305,15 @@
             display: block;
             padding: 0.75rem;
             text-decoration: none;
-            color: var(--text-secondary);
+            color: var(--white);
             font-weight: 500;
             border-radius: 0.5rem;
             transition: all 0.3s ease;
         }
 
         .mobile-menu a:hover {
-            background: var(--hover-bg);
-            color: var(--primary-blue);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--flag-white);
         }
 
         /* Hero Section */
@@ -316,7 +341,7 @@
         }
 
         .hero .highlight {
-            color: var(--primary-blue);
+            color: var(--primary-green);
         }
 
         .hero p {
@@ -356,7 +381,7 @@
         .section-divider {
             width: 6rem;
             height: 0.25rem;
-            background: var(--primary-blue);
+            background: var(--primary-green);
             margin: 0 auto 1.5rem;
             border-radius: 0.125rem;
         }
@@ -398,7 +423,7 @@
         .about-item-icon {
             width: 3rem;
             height: 3rem;
-            background: var(--primary-blue);
+            background: var(--primary-green);
             border-radius: 0.75rem;
             display: flex;
             align-items: center;
@@ -565,12 +590,12 @@
         }
 
         .indicator.active {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             transform: scale(1.25);
         }
 
         .indicator:hover {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             transform: scale(1.1);
         }
 
@@ -717,9 +742,9 @@
         }
 
         .member-card:hover .member-photo {
-            border-color: var(--primary-blue);
+            border-color: var(--primary-green);
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
         }
 
         .member-photo img {
@@ -736,7 +761,7 @@
         }
 
         .member-role {
-            color: var(--primary-blue);
+            color: var(--primary-green);
             font-weight: 500;
             font-size: 0.9rem;
         }
@@ -762,9 +787,9 @@
         }
 
         .carousel-nav:hover {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
-            border-color: var(--primary-blue);
+            border-color: var(--primary-green);
             transform: translateY(-50%) scale(1.1);
         }
 
@@ -793,7 +818,7 @@
         }
 
         .carousel-indicator.active {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             transform: scale(1.25);
         }
 
@@ -804,8 +829,8 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
         }
 
         .contact-info {
@@ -834,7 +859,7 @@
         .contact-icon {
             width: 3rem;
             height: 3rem;
-            background: var(--primary-blue);
+            background: var(--primary-green);
             border-radius: 0.75rem;
             display: flex;
             align-items: center;
@@ -866,7 +891,53 @@
 
         .contact-details a:hover,
         .contact-details button:hover {
-            color: var(--primary-blue);
+            color: var(--primary-green);
+        }
+
+        /* Donation Section */
+        .donation-section {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .donation-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .bank-details {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 2px solid var(--primary-green);
+        }
+
+        .bank-detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bank-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .bank-detail-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .bank-detail-value {
+            font-weight: 700;
+            color: var(--primary-green);
+            font-family: monospace;
         }
 
         /* Form Styles */
@@ -904,8 +975,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
             transform: translateY(-1px);
         }
 
@@ -1007,7 +1078,7 @@
             left: 2rem;
             width: 3rem;
             height: 3rem;
-            background: var(--primary-blue);
+            background: var(--primary-green);
             border: none;
             border-radius: 50%;
             color: var(--white);
@@ -1026,7 +1097,7 @@
 
         .scroll-top:hover {
             transform: scale(1.1);
-            background: var(--secondary-blue);
+            background: var(--secondary-green);
         }
 
         /* Modal */
@@ -1140,7 +1211,11 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .about-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1197,7 +1272,6 @@
 
             .gallery-content h3 {
                 font-size: 1.5rem;
-                
             }
 
             .gallery-content p {
@@ -1205,7 +1279,8 @@
             }
 
             .contact-form,
-            .contact-card {
+            .contact-card,
+            .donation-section {
                 padding: 1.5rem;
             }
 
@@ -1292,6 +1367,10 @@
                 font-size: 1rem;
             }
 
+            .company-info .flag-text {
+                font-size: 0.625rem;
+            }
+
             .company-info h1 {
                 font-size: 1rem;
             }
@@ -1317,7 +1396,8 @@
             }
 
             .contact-form,
-            .contact-card {
+            .contact-card,
+            .donation-section {
                 padding: 1rem;
             }
 
@@ -1342,6 +1422,16 @@
             .member-role {
                 font-size: 0.85rem;
             }
+
+            .bank-detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .bank-detail-value {
+                font-size: 0.9rem;
+            }
         }
 
         @media (min-width: 769px) {
@@ -1362,7 +1452,7 @@
         a:focus,
         input:focus,
         textarea:focus {
-            outline: 2px solid var(--primary-blue);
+            outline: 2px solid var(--primary-green);
             outline-offset: 2px;
         }
     </style>
@@ -1373,12 +1463,12 @@
         <div class="container">
             <nav class="nav-container">
                 <div class="logo-section">
-                    <!-- REPLACE "YOUR_LOGO_IMAGE_URL_HERE" with your actual logo image URL -->
                     <div class="logo">
                         <img src="LOGO.png" alt="Kammavar Cultural Academy Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="logo-text" style="display: none;">KCA</div>
                     </div>
                     <div class="company-info">
+                        <div class="flag-text"><strong style="font-weight: 900;font-size: larger;">Jaikamma! </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="font-weight: 900;font-size:larger;">🕉</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="font-weight: 900;font-size: larger;">Jaihind!</strong></div>
                         <h1>Kammavar Cultural Academy</h1>
                         <p>Preserving Heritage, Empowering Community</p>
                     </div>
@@ -1408,7 +1498,8 @@
             </nav>
         </div>
     </header>
-
+<BR></BR>
+ 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -1483,7 +1574,6 @@
                     <img src="50.JPG" alt="Cultural Heritage">
                     <div class="about-image-overlay">
                         <div class="about-image-content">
-                          
                             <p>Foundation that helps kammavar people</p>
                         </div>
                     </div>
@@ -1509,7 +1599,7 @@
                         <img src="1.JPG" alt="Pramothsavam">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3 style="font-weight: bolder; ">Pramothsavam</h3>
+                                <h3 style="font-weight: bolder;">Pramothsavam</h3>
                                 <p></p>
                             </div>
                         </div>
@@ -1642,12 +1732,10 @@
                         <div class="member-photo">
                             <img src="" alt="G.Ramdass">
                         </div>
-                      <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Musunnar</h3>
+                        <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Musunnar</h3>
                         <h3 class="member-name">G.Ramdass</h3>
                         <p class="member-role">Joint Secretary</p>
                     </div>
-                    
-                   
                 </div>
 
                 <button class="carousel-nav carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous members">
@@ -1719,6 +1807,34 @@
                 </div>
 
                 <div class="fade-in fade-in-delay-1">
+                    <div class="donation-section">
+                        <h3><i class="fas fa-donate"></i> Donation</h3>
+                        <div class="bank-details">
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">Account Name:</span>
+                                <span class="bank-detail-value">Kammavar Cultural Academy</span>
+                            </div>
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">Account Number:</span>
+                                <span class="bank-detail-value">41835166789</span>
+                            </div>
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">Bank Name:</span>
+                                <span class="bank-detail-value">State Bank of India</span>
+                            </div>
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">Branch:</span>
+                                <span class="bank-detail-value">Kurumbapalayam</span>
+                            </div>
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">IFSC Code:</span>
+                                <span class="bank-detail-value">SBIN0004966</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in fade-in-delay-2">
                     <form class="contact-form" onsubmit="submitForm(event)">
                         <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Membership and Services</h3>
                        
@@ -1910,9 +2026,6 @@
                      { src: "52.JPG", title: "" },
                       { src: "53.JPG", title: "" },
                        { src: "54.JPG", title: "" },
-                        
-                    
-                    
                 ]
             },
             community: {
@@ -1987,7 +2100,6 @@
                     { src: "19.JPG", title: " " },
                     { src: "1.JPG", title: " " },
                     { src: "2.JPG", title: " " },
-                    
                 ]
             }
         };
@@ -2076,7 +2188,7 @@
             // Clear existing content
             grid.innerHTML = '';
             
-            // Add gallery items - REMOVED onclick handler for full screen images
+            // Add gallery items
             gallery.images.forEach((image) => {
                 const item = document.createElement('div');
                 item.className = 'service-gallery-item';
@@ -2263,16 +2375,14 @@ Message: ${data.message}
             updateCarouselPosition();
             startCarouselAutoPlay();
             
-            // FIXED: Add click event listeners to gallery slides
+            // Add click event listeners to gallery slides
             slides.forEach((slide) => {
-                console.log(slide)
                 slide.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     
                     const currentSlide = document.querySelector(".gallery-slide.active")
                     const serviceType = currentSlide.getAttribute('data-service');
-                    console.log(e.currentTarget)
                     
                     if (serviceType && serviceGalleries[serviceType]) {
                         openServiceGallery(serviceType);
