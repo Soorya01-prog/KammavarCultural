@@ -55,6 +55,7 @@
             --saffron: #FF9933;
             --flag-white: #FFFFFF;
             --flag-green: #138808;
+            --dark-yellow: #B8860B;
             
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
@@ -65,7 +66,7 @@
             --border-color: #e2e8f0;
             --card-bg: #ffffff;
             --hover-bg: #f8fafc;
-            --navbar-bg: #22c55e;
+            --navbar-bg: #ffffff;
         }
 
         * {
@@ -139,9 +140,10 @@
             width: 100%;
             z-index: 1000;
             background: var(--navbar-bg);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 3px solid var(--primary-green);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -186,15 +188,15 @@
             display: none;
             width: 3rem;
             height: 3rem;
-            background: var(--white);
+            background: var(--primary-green);
             border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-green);
+            color: var(--white);
             font-weight: 700;
             font-size: 1.25rem;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
         }
 
         .company-info {
@@ -204,27 +206,24 @@
         .company-info .flag-text {
             font-size: 0.75rem;
             margin-bottom: 0.25rem;
-            font-weight: 600;
-            background: linear-gradient(90deg, var(--saffron) 0%, var(--saffron) 33%, var(--flag-white) 33%, var(--flag-white) 66%, var(--flag-green) 66%, var(--flag-green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-weight: 900;
+            color: var(--black);
+            text-shadow: none;
+            -webkit-text-stroke: none;
         }
 
         .company-info h1 {
             font-size: 1.25rem;
-            font-weight: 700;
+            font-weight: 800;
             margin: 0;
-            color: var(--white);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: var(--primary-green);
         }
 
         .company-info p {
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--text-muted);
             margin: 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            text-shadow: none;
         }
 
         .nav-menu {
@@ -236,16 +235,16 @@
 
         .nav-menu a {
             text-decoration: none;
-            color: var(--white);
+            color: var(--text-primary);
             font-weight: 500;
             transition: all 0.3s ease;
             padding: 0.5rem 0;
             position: relative;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            text-shadow: none;
         }
 
         .nav-menu a:hover {
-            color: var(--flag-white);
+            color: var(--primary-green);
             transform: translateY(-1px);
         }
 
@@ -256,7 +255,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--white);
+            background: var(--primary-green);
             transition: width 0.3s ease;
         }
 
@@ -270,7 +269,7 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--white);
+            color: var(--text-primary);
             padding: 0.5rem;
         }
 
@@ -282,7 +281,7 @@
             left: 0;
             width: 100%;
             background: var(--navbar-bg);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid var(--border-color);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             animation: slideDown 0.3s ease;
         }
@@ -305,15 +304,15 @@
             display: block;
             padding: 0.75rem;
             text-decoration: none;
-            color: var(--white);
+            color: var(--text-primary);
             font-weight: 500;
             border-radius: 0.5rem;
             transition: all 0.3s ease;
         }
 
         .mobile-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--flag-white);
+            background: var(--hover-bg);
+            color: var(--primary-green);
         }
 
         /* Hero Section */
@@ -936,8 +935,8 @@
 
         .bank-detail-value {
             font-weight: 700;
-            color: var(--primary-green);
-            font-family: monospace;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
         /* Form Styles */
@@ -1468,9 +1467,12 @@
                         <div class="logo-text" style="display: none;">KCA</div>
                     </div>
                     <div class="company-info">
-                        <div class="flag-text"><strong style="font-weight: 900;font-size: larger;">Jaikamma! </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="font-weight: 900;font-size:larger;">&#2384</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="font-weight: 900;font-size: larger;">Jaihind!</strong></div>
-                        <h1>Kammavar Cultural Academy</h1>
-                        <p>Preserving Heritage, Empowering Community</p>
+                        <div class="flag-text">
+                            <strong style="color: var(--saffron);font-size: small;">Jaikamma!</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong style="color: blue; font-size: small;">&#2384;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong style="color:var(--saffron);font-size: small;">Jaihind!</strong>
+                        </div>
+                        <h1 style="font-size: large;">Kammavar Cultural Academy</h1>
                     </div>
                 </div>
 
@@ -1504,11 +1506,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="fade-in">
+                <h1 class="fade-in" style="color: var(--saffron);">
                     Preserving Heritage, <span class="highlight">Empowering Community</span>
                 </h1>
                 <p class="fade-in fade-in-delay-1">
-                    The Kammavar Naidu community is a proud and historic Tamil-speaking people of Tamil Nadu with a rich legacy of valor and cultural heritage. Rooted in dharma and sacrifice, we descend from dynasties that have protected the land for over 700 years.
+                    The Kammavar Naidu community is a proud and historic Telugu-speaking people of Tamil Nadu with a rich legacy of valor and cultural heritage. Rooted in dharma and sacrifice, we descend from dynasties that have protected the land for over 700 years.
                 </p>
                 <div class="hero-buttons fade-in fade-in-delay-2">
                     <a href="#about" class="btn btn-primary">
@@ -1536,38 +1538,16 @@
                 <div class="about-content fade-in">
                     <div class="about-item">
                         <div class="about-item-header">
-                            <div class="about-item-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h3>Our Heritage</h3>
+                            <h3 style="font-weight: 800;">Our Objective</h3>
                         </div>
                         <p>
-                            We bow to our Kammakula Dhevathaa Sri Renugadevi Thalli. We are born into a dynasty that defended the nation and dharma for over 700 years, sacrificing countless lives. We gratefully remember the rulers of the Satavahana, Kakatiya, and Vijayanagara empires, and all who protected Tamil people and land, including Veera Kumara Kambanna and Thirumalai Nayakkar.
+                           <strong style="color: black ;font-weight: 400;">  About us
+Kammavar Cultural Academy is a government registered charitable trust. Its primary objective is to preserve the longstanding culture and traditions of the millions of Kammavar Naidu people in Tamilnadu. Kammavar Cultural Academy also works the legal protection of the kammavar people and the safe future of Kammavar children. Our foundation is conducting various programs emphasising that Kammavar children should study well, work in high positions of power in the central and state governments, and serve the people and our nation in an honest manner.
+We bow the feet of our kammakula Dhevathaa Sri Renugadevi Thalli , we born in a dynasty that fought for over 700 years to protect the nation and dharma and sacrificed millions of lives and gave us the opportunity to serve and prosper that vamsa.
+We also remember with gratitude the great kings who ruled the satavahana empire kakatiya empire and vijayanagara empire and all those who protected the Tamil people and Tamil land from the invasion of sultans of Tamilnadu inclusive of Veera Kumara kambanna and Thirumalai Nayakkar etc...</strong>
                         </p>
                     </div>
 
-                    <div class="about-item">
-                        <div class="about-item-header">
-                            <div class="about-item-icon">
-                                <i class="fas fa-target"></i>
-                            </div>
-                            <h3>Our Mission</h3>
-                        </div>
-                        <p><strong>Kammavar Cultural Academy</strong> is a government-registered charitable trust dedicated to preserving the rich culture and traditions of the Kammavar Naidu community in Tamil Nadu. It also works for the legal protection and secure future of Kammavar children, promoting education and encouraging them to serve the nation with honesty in high positions of government.
-                        </p>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="about-item-header">
-                            <div class="about-item-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Our Values</h3>
-                        </div>
-                        <p>
-                           Kammavar Cultural Academy also works the legal protection of the kammavar people and the safe future of Kammavar children. Our foundation is conducting various programs emphasising that Kammavar children should study well, work in high positions of power in the central and state governments, and serve the people and our nation in an honest manner.
-                        </p>
-                    </div>
                 </div>
 
                 <div class="about-image fade-in fade-in-delay-1">
@@ -1599,7 +1579,7 @@
                         <img src="1.JPG" alt="Pramothsavam">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3 style="font-weight: bolder;">Pramothsavam</h3>
+                                <h3 style="font-weight: bolder;"></h3>
                                 <p></p>
                             </div>
                         </div>
@@ -1608,35 +1588,42 @@
                         <img src="21.JPG" alt="Inaugural Function">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3 style="font-weight: bolder;">Inaugural Function</h3>
+                                <h3 style="font-weight: bolder;"></h3>
                                 <p></p>
                             </div>
                         </div>
                     </div>
                     <div class="gallery-slide" data-service="community">
-                        <img src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Community Support">
+                        <img src="107.jpg" alt="Community Support">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3>Community Support</h3>
-                                <p>Providing assistance and support to community members in need.</p>
+                                <h3 style="font-weight: bolder;"></h3>
                             </div>
                         </div>
                     </div>
                     <div class="gallery-slide" data-service="youth">
-                        <img src="https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Youth Development">
+                        <img src="110.jpg" alt="Youth Development">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3>Youth Development</h3>
-                                <p>Empowering young Kammavar individuals through mentorship and guidance.</p>
+                                <h3></h3>
                             </div>
                         </div>
                     </div>
                     <div class="gallery-slide" data-service="legal">
-                        <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Legal Aid">
+                        <img src="127.jpg" alt="Legal Aid">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3>Legal Aid</h3>
-                                <p>Providing legal protection and support for community rights and welfare.</p>
+                               
+                                <p style="font-size:xx-large;font-weight: bolder;"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide" data-service="welfare">
+                        <img src="122.jpg" alt="Welfare Programs">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h3></h3>
+                               
                             </div>
                         </div>
                     </div>
@@ -1655,6 +1642,7 @@
                     <span class="indicator" onclick="currentSlide(3)"></span>
                     <span class="indicator" onclick="currentSlide(4)"></span>
                     <span class="indicator" onclick="currentSlide(5)"></span>
+                    <span class="indicator" onclick="currentSlide(6)"></span>
                 </div>
             </div>
         </div>
@@ -1690,7 +1678,7 @@
                 <div class="members-container" id="membersContainer">
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="" alt="Vivekanandar Palanisamy">
+                            <img src="m7.jpg" alt="Vivekanandar Palanisamy">
                         </div>
                         <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Sunchar</h3>
                         <h3 class="member-name">Vivekanandar Palanisamy</h3>
@@ -1698,15 +1686,15 @@
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="" alt="A.P.M.MuthuKrishnan">
+                            <img src="m3.jpg" alt="A.P.M Udayakumar">
                         </div>
                         <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Namburar</h3>
-                        <h3 class="member-name">A.P.M.MuthuKrishnan</h3>
+                        <h3 class="member-name">A.P.M Udayakumar</h3>
                         <p class="member-role">Vice President</p>
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="" alt="Dr.S.Karthik">
+                            <img src="m2.jpg" alt="Dr.S.Karthik">
                         </div>
                         <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Marthar</h3>
                         <h3 class="member-name">Dr.S.Karthik</h3>
@@ -1714,7 +1702,7 @@
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="" alt="S.Sampathkumar">
+                            <img src="m1.jpg" alt="S.Sampathkumar">
                         </div>
                         <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Uppalar</h3>
                         <h3 class="member-name">S.Sampathkumar</h3>
@@ -1722,7 +1710,7 @@
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="" alt="T.Muthukrishnan">
+                            <img src="m6.jpg" alt="T.Muthukrishnan">
                         </div>
                         <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Musunnar</h3>
                         <h3 class="member-name">T.Muthukrishnan</h3>
@@ -1730,12 +1718,22 @@
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="" alt="G.Ramdass">
+                            <img src="m4.jpg" alt="G.Ramdass">
                         </div>
                         <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Musunnar</h3>
                         <h3 class="member-name">G.Ramdass</h3>
                         <p class="member-role">Joint Secretary</p>
                     </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="m5.jpg" alt="K.Suresh Kumar">
+                        </div>
+                        <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Gorijillar</h3>
+                        <h3 class="member-name">K.Boopathy</h3>
+                        <p class="member-role">Trustee</p>
+                    </div>
+                   
+                    
                 </div>
 
                 <button class="carousel-nav carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous members">
@@ -1808,27 +1806,27 @@
 
                 <div class="fade-in fade-in-delay-1">
                     <div class="donation-section">
-                        <h3><i class="fas fa-donate"></i> Donation</h3>
+                        <h3><i class="fas fa-donate"></i> Contribute</h3>
                         <div class="bank-details">
                             <div class="bank-detail-item">
                                 <span class="bank-detail-label">Account Name:</span>
-                                <span class="bank-detail-value">Kammavar Cultural Academy</span>
+                                <span class="bank-detail-value" >Kammavar Cultural Academy</span>
                             </div>
                             <div class="bank-detail-item">
                                 <span class="bank-detail-label">Account Number:</span>
-                                <span class="bank-detail-value">41835166789</span>
+                                <span class="bank-detail-value">5891000100002349</span>
                             </div>
                             <div class="bank-detail-item">
                                 <span class="bank-detail-label">Bank Name:</span>
-                                <span class="bank-detail-value">State Bank of India</span>
+                                <span class="bank-detail-value">Punjab National Bank</span>
                             </div>
                             <div class="bank-detail-item">
                                 <span class="bank-detail-label">Branch:</span>
-                                <span class="bank-detail-value">Kurumbapalayam</span>
+                                <span class="bank-detail-value">Neelambur</span>
                             </div>
                             <div class="bank-detail-item">
                                 <span class="bank-detail-label">IFSC Code:</span>
-                                <span class="bank-detail-value">SBIN0004966</span>
+                                <span class="bank-detail-value">PUNB0589100</span>
                             </div>
                         </div>
                     </div>
@@ -1865,7 +1863,6 @@
 
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
                             Submit Application
-                            <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
@@ -1879,7 +1876,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-                        <div class="logo-text">KCA</div>
+                       
                         <h3>Kammavar Cultural Academy</h3>
                     </div>
                     <p>
@@ -1927,7 +1924,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Kammavar Cultural Academy. All rights reserved.</p>
+                <p>&copy; 2025 Kammavar Cultural Academy. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -2029,77 +2026,58 @@
                 ]
             },
             community: {
-                title: "Community Support",
+                title: "Our Services to Poor Students in Government Schools ",
                 images: [
-                    { src: "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Healthcare Services" },
-                    { src: "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Food Distribution" },
-                    { src: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Housing Assistance" },
-                    { src: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Emergency Support" },
-                    { src: "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Social Services" },
-                    { src: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Outreach" },
-                    { src: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Welfare Programs" },
-                    { src: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Support Groups" },
-                    { src: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Care" },
-                    { src: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Assistance Programs" },
-                    { src: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Development" },
-                    { src: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Social Support" },
-                    { src: "https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Building" },
-                    { src: "https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Volunteer Services" },
-                    { src: "https://images.pexels.com/photos/2774565/pexels-photo-2774565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Events" },
-                    { src: "https://images.pexels.com/photos/1438075/pexels-photo-1438075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Support Networks" },
-                    { src: "https://images.pexels.com/photos/2043595/pexels-photo-2043595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Resources" },
-                    { src: "https://images.pexels.com/photos/1181430/pexels-photo-1181430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Welfare Support" },
-                    { src: "https://images.pexels.com/photos/2182980/pexels-photo-2182980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Unity" },
-                    { src: "https://images.pexels.com/photos/1239295/pexels-photo-1239295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Strength" }
+                   { src: "100.jpg", title: "" },
+                   { src: "101.jpg", title: "" },{ src: "102.jpg", title: "" },{ src: "103.jpg", title: "" },{ src: "104.jpg", title: "" },{ src: "105.jpg", title: "" },{ src: "106.jpg", title: "" },{ src: "107.jpg", title: "" },{ src: "108.jpg", title: "" },{ src: "109.jpg", title: "" },
                 ]
             },
             youth: {
-                title: "Youth Development",
+                title: "Cultural Program at Mettuppalayam along with Mettuppalayam Kammavar Nala Sangam.",
                 images: [
-                    { src: "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Leadership Training" },
-                    { src: "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Sports Programs" },
-                    { src: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Mentorship Programs" },
-                    { src: "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Workshops" },
-                    { src: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Skill Building" },
-                    { src: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Empowerment" },
-                    { src: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Career Development" },
-                    { src: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Activities" },
-                    { src: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Personal Development" },
-                    { src: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Leadership" },
-                    { src: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Programs" },
-                    { src: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Engagement" },
-                    { src: "https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Support" },
-                    { src: "https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Events" },
-                    { src: "https://images.pexels.com/photos/2774565/pexels-photo-2774565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Initiatives" },
-                    { src: "https://images.pexels.com/photos/1438075/pexels-photo-1438075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Opportunities" },
-                    { src: "https://images.pexels.com/photos/2043595/pexels-photo-2043595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Growth" },
-                    { src: "https://images.pexels.com/photos/1181430/pexels-photo-1181430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Excellence" },
-                    { src: "https://images.pexels.com/photos/2182980/pexels-photo-2182980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Achievement" },
-                    { src: "https://images.pexels.com/photos/1239295/pexels-photo-1239295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Success" }
+                    { src: "110.jpg", title: " " },
+                    { src: "111.jpg", title: " " },
+                    { src: "113.jpg", title: " " },
+                    { src: "114.jpg", title: " " },
+                    { src: "115.jpg", title: " " },
+                    { src: "116.jpg", title: " " },
+                    { src: "117.jpg", title: " " },
+                    { src: "118.jpg", title: " " },
+                    { src: "119.jpg", title: " " },
+                    { src: "120.jpg", title: " " },
                 ]
             },
             legal: {
-                title: "Pramothsavam",
+                title: "Mahasangalpam Program conducted in various clan deity temples all over Tamilnadu for our Kammavar Children.",
                 images: [
-                    { src: "3.JPG", title: "" },
-                    { src: "4.JPG", title: " " },
-                    { src: "5.JPG", title: " " },
-                    { src: "6.JPG", title: " " },
-                    { src: "7.JPG", title: " " },
-                    { src: "8.JPG", title: " " },
-                    { src: "9.JPG", title: " " },
-                    { src: "10.JPG", title: " " },
-                    { src: "11.JPG", title: " " },
-                    { src: "12.JPG", title: " " },
-                    { src: "13.JPG", title: " " },
-                    { src: "14.JPG", title: " " },
-                    { src: "15.JPG", title: " " },
-                    { src: "16.JPG", title: " " },
-                    { src: "17.JPG", title: " " },
-                    { src: "18.JPG", title: " " },
-                    { src: "19.JPG", title: " " },
-                    { src: "1.JPG", title: " " },
-                    { src: "2.JPG", title: " " },
+                    { src: "124.jpg", title: "" },
+                    { src: "125.jpg", title: "" },
+                    { src: "126.jpg", title: "" },
+                    { src: "127.jpg", title: "" },
+                    { src: "128.jpg", title: "" },
+                    { src: "129.jpg", title: "" },
+                    { src: "130.jpg", title: "" },
+                    { src: "131.jpg", title: "" },
+                    { src: "132.jpg", title: "" },
+                    { src: "133.jpg", title: "" },
+                    { src: "134.jpg", title: "" },
+                    { src: "135.jpg", title: "" },
+                    { src: "136.jpg", title: "" },
+                    { src: "137.jpg", title: "" },
+                    { src: "138.jpg", title: "" },
+                    { src: "139.jpg", title: "" },
+                    { src: "140.jpg", title: "" },
+
+                    
+                ]
+            },
+            welfare: {
+                title: "Participated at Chennai Kammavar Sangam Annual Day Celebrations.",
+                images: [
+                    { src: "122.jpg", title: "" },
+                      { src: "121.jpg", title: "" },
+                        { src: "123.jpg", title: "" }
+                    
                 ]
             }
         };
@@ -2242,11 +2220,12 @@
                 cardWidth = membersContainer.offsetWidth;
                 gap = 0;
             } else {
-                cardWidth = 200 + 32;
-                gap = 0;
+                cardWidth = 200; // Fixed card width for desktop
+                gap = 32; // 2rem gap
             }
             
-            const offset = currentCarouselIndex * (cardWidth + gap);
+            // Calculate offset based on members per view
+            const offset = currentCarouselIndex * membersPerView * (cardWidth + gap);
             membersContainer.style.transform = `translateX(-${offset}px)`;
             
             const indicators = document.querySelectorAll('.carousel-indicator');
