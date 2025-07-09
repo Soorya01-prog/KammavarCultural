@@ -149,7 +149,35 @@
             gap: 0.75rem;
         }
 
+        /* Updated Logo Styles - Invisible container, only image shows */
         .logo {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            /* Remove background, border, and other visual elements */
+            background: none;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Fallback text when no image is uploaded */
+        .logo-text {
+            display: none;
             width: 3rem;
             height: 3rem;
             background: var(--primary-blue);
@@ -161,11 +189,6 @@
             font-weight: 700;
             font-size: 1.25rem;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         .company-info h1 {
@@ -361,7 +384,6 @@
             space-y: 1.5rem;
         }
 
-        /* Simple About Items without container styling */
         .about-item {
             margin-bottom: 3rem;
         }
@@ -480,13 +502,14 @@
             display: flex;
             align-items: end;
             padding: 2rem;
+            pointer-events: none;
         }
 
         .gallery-content h3 {
             color: var(--white);
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .gallery-content p {
@@ -509,6 +532,7 @@
             font-size: 1.25rem;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            z-index: 10;
         }
 
         .gallery-nav:hover {
@@ -548,6 +572,112 @@
         .indicator:hover {
             background: var(--primary-blue);
             transform: scale(1.1);
+        }
+
+        /* Service Gallery Modal */
+        .service-gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-gallery-modal.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .service-gallery-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .service-gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        .service-gallery-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .service-gallery-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-gallery-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .service-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-gallery-item {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            aspect-ratio: 16/9;
+        }
+
+        .service-gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .service-gallery-item:hover .service-gallery-item-overlay {
+            transform: translateY(0);
         }
 
         /* Members Section */
@@ -1024,6 +1154,11 @@
                 width: 120px;
                 height: 120px;
             }
+
+            .service-gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1062,6 +1197,7 @@
 
             .gallery-content h3 {
                 font-size: 1.5rem;
+                
             }
 
             .gallery-content p {
@@ -1086,7 +1222,6 @@
                 left: 1rem;
             }
 
-            /* Mobile Members Layout */
             .members-container {
                 gap: 0;
                 padding: 0;
@@ -1117,6 +1252,20 @@
             .about-item p {
                 margin-left: 0;
             }
+
+            .service-gallery-content {
+                padding: 1rem;
+                margin-bottom: 0.2;
+            }
+            
+            .service-gallery-title {
+                font-size: 1.5rem;
+            }
+
+            .service-gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1133,6 +1282,11 @@
             }
 
             .logo {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .logo-text {
                 width: 2.5rem;
                 height: 2.5rem;
                 font-size: 1rem;
@@ -1190,14 +1344,12 @@
             }
         }
 
-        /* Desktop Members Layout */
         @media (min-width: 769px) {
             .member-card {
                 width: 200px;
             }
         }
 
-        /* Accessibility */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1206,7 +1358,6 @@
             }
         }
 
-        /* Focus styles */
         button:focus,
         a:focus,
         input:focus,
@@ -1222,7 +1373,11 @@
         <div class="container">
             <nav class="nav-container">
                 <div class="logo-section">
-                    <div class="logo">KCA</div>
+                    <!-- REPLACE "YOUR_LOGO_IMAGE_URL_HERE" with your actual logo image URL -->
+                    <div class="logo">
+                        <img src="LOGO.png" alt="Kammavar Cultural Academy Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="logo-text" style="display: none;">KCA</div>
+                    </div>
                     <div class="company-info">
                         <h1>Kammavar Cultural Academy</h1>
                         <p>Preserving Heritage, Empowering Community</p>
@@ -1282,7 +1437,7 @@
                 <h2 class="section-title">About Our Mission</h2>
                 <div class="section-divider"></div>
                 <p class="section-description">
-                 To empower Kammavar children through education, leadership, and service to the nation with honesty and integrity.
+                A Foundation that helps Kammavar People for Spiritual, Cultural and Economic upliftment of society.
                 </p>
             </div>
 
@@ -1325,11 +1480,11 @@
                 </div>
 
                 <div class="about-image fade-in fade-in-delay-1">
-                    <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Cultural Heritage">
+                    <img src="50.JPG" alt="Cultural Heritage">
                     <div class="about-image-overlay">
                         <div class="about-image-content">
-                            <h3>Preserving Traditions</h3>
-                            <p>For Future Generations</p>
+                          
+                            <p>Foundation that helps kammavar people</p>
                         </div>
                     </div>
                 </div>
@@ -1350,26 +1505,26 @@
 
             <div class="services-gallery fade-in fade-in-delay-1">
                 <div class="gallery-container">
-                    <div class="gallery-slide active">
-                        <img src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cultural Programs" onclick="openModal(this.src)">
+                    <div class="gallery-slide active" data-service="cultural">
+                        <img src="1.JPG" alt="Pramothsavam">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3>Cultural Programs</h3>
-                                <p>Preserving and promoting traditional Kammavar culture through various programs and events.</p>
+                                <h3 style="font-weight: bolder; ">Pramothsavam</h3>
+                                <p></p>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-slide">
-                        <img src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Educational Services" onclick="openModal(this.src)">
+                    <div class="gallery-slide" data-service="educational">
+                        <img src="21.JPG" alt="Inaugural Function">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
-                                <h3>Educational Services</h3>
-                                <p>Supporting education and skill development for Kammavar community members.</p>
+                                <h3 style="font-weight: bolder;">Inaugural Function</h3>
+                                <p></p>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-slide">
-                        <img src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Community Support" onclick="openModal(this.src)">
+                    <div class="gallery-slide" data-service="community">
+                        <img src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Community Support">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h3>Community Support</h3>
@@ -1377,8 +1532,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-slide">
-                        <img src="https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Youth Development" onclick="openModal(this.src)">
+                    <div class="gallery-slide" data-service="youth">
+                        <img src="https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Youth Development">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h3>Youth Development</h3>
@@ -1386,8 +1541,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-slide">
-                        <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Legal Aid" onclick="openModal(this.src)">
+                    <div class="gallery-slide" data-service="legal">
+                        <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Legal Aid">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h3>Legal Aid</h3>
@@ -1415,11 +1570,26 @@
         </div>
     </section>
 
+    <!-- Service Gallery Modal -->
+    <div id="serviceGalleryModal" class="service-gallery-modal">
+        <div class="service-gallery-content">
+            <div class="service-gallery-header">
+                <h2 id="serviceGalleryTitle" class="service-gallery-title">Service Gallery</h2>
+                <button class="service-gallery-close" onclick="closeServiceGallery()" aria-label="Close gallery">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="serviceGalleryGrid" class="service-gallery-grid">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <!-- Members Section -->
     <section id="members" class="section members">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="section-title">Committee Members</h2>
+                <h2 class="section-title">Academy Administrators</h2>
                 <div class="section-divider"></div>
                 <p class="section-description">
                     Meet our dedicated team working tirelessly for our community
@@ -1430,60 +1600,54 @@
                 <div class="members-container" id="membersContainer">
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Rajesh Kumar">
+                            <img src="" alt="Vivekanandar Palanisamy">
                         </div>
-                        <h3 class="member-name">Rajesh Kumar</h3>
+                        <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Sunchar</h3>
+                        <h3 class="member-name">Vivekanandar Palanisamy</h3>
                         <p class="member-role">President</p>
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Sita Naidu">
+                            <img src="" alt="A.P.M.MuthuKrishnan">
                         </div>
-                        <h3 class="member-name">Sita Naidu</h3>
+                        <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Namburar</h3>
+                        <h3 class="member-name">A.P.M.MuthuKrishnan</h3>
                         <p class="member-role">Vice President</p>
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Vijay Patel">
+                            <img src="" alt="Dr.S.Karthik">
                         </div>
-                        <h3 class="member-name">Vijay Patel</h3>
+                        <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Marthar</h3>
+                        <h3 class="member-name">Dr.S.Karthik</h3>
+                        <p class="member-role">General Secretary</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="" alt="S.Sampathkumar">
+                        </div>
+                        <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Uppalar</h3>
+                        <h3 class="member-name">S.Sampathkumar</h3>
                         <p class="member-role">Secretary</p>
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Meera Reddy">
+                            <img src="" alt="T.Muthukrishnan">
                         </div>
-                        <h3 class="member-name">Meera Reddy</h3>
+                        <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Musunnar</h3>
+                        <h3 class="member-name">T.Muthukrishnan</h3>
                         <p class="member-role">Treasurer</p>
                     </div>
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Anil Kumar">
+                            <img src="" alt="G.Ramdass">
                         </div>
-                        <h3 class="member-name">Anil Kumar</h3>
-                        <p class="member-role">Member</p>
+                      <h3 class="member-name" style="font-size: larger; font-weight: bolder;">Musunnar</h3>
+                        <h3 class="member-name">G.Ramdass</h3>
+                        <p class="member-role">Joint Secretary</p>
                     </div>
-                    <div class="member-card">
-                        <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Priya Devi">
-                        </div>
-                        <h3 class="member-name">Priya Devi</h3>
-                        <p class="member-role">Member</p>
-                    </div>
-                    <div class="member-card">
-                        <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Ravi Sharma">
-                        </div>
-                        <h3 class="member-name">Ravi Sharma</h3>
-                        <p class="member-role">Member</p>
-                    </div>
-                    <div class="member-card">
-                        <div class="member-photo">
-                            <img src="https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" alt="Lakshmi Naidu">
-                        </div>
-                        <h3 class="member-name">Lakshmi Naidu</h3>
-                        <p class="member-role">Member</p>
-                    </div>
+                    
+                   
                 </div>
 
                 <button class="carousel-nav carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous members">
@@ -1599,7 +1763,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-                        <div class="logo">KCA</div>
+                        <div class="logo-text">KCA</div>
                         <h3>Kammavar Cultural Academy</h3>
                     </div>
                     <p>
@@ -1615,6 +1779,7 @@
                         <li><button onclick="scrollToSection('services')">Services</button></li>
                         <li><button onclick="scrollToSection('members')">Members</button></li>
                         <li><button onclick="scrollToSection('contact')">Contact</button></li>
+                        <li>Govt Reg No:69/2024</li>
                     </ul>
                 </div>
 
@@ -1627,7 +1792,7 @@
                         </a>
                     </div>
                     <div style="margin-bottom: 0.75rem;">
-                        <a href="mailto:kcafoundation2024@gmail.com style="display: flex; align-items: center; gap: 0.5rem;">
+                        <a href="mailto:kcafoundation2024@gmail.com" style="display: flex; align-items: center; gap: 0.5rem;">
                             <i class="fas fa-envelope"></i>
                             kcafoundation2024@gmail.com
                         </a>
@@ -1675,7 +1840,7 @@
         // Global variables
         let currentSlideIndex = 0;
         let currentCarouselIndex = 0;
-        let membersPerView = 1; // Default to 1 for mobile-first
+        let membersPerView = 1;
         const slides = document.querySelectorAll('.gallery-slide');
         const indicators = document.querySelectorAll('.indicator');
         const membersContainer = document.getElementById('membersContainer');
@@ -1683,7 +1848,151 @@
         let slideInterval;
         let carouselInterval;
 
-        // Mobile menu
+        // Service gallery data
+        const serviceGalleries = {
+            cultural: {
+                title: "Pramothsavam",
+                images: [
+                    { src: "3.JPG", title: "" },
+                    { src: "4.JPG", title: " " },
+                    { src: "5.JPG", title: " " },
+                    { src: "6.JPG", title: " " },
+                    { src: "7.JPG", title: " " },
+                    { src: "8.JPG", title: " " },
+                    { src: "9.JPG", title: " " },
+                    { src: "10.JPG", title: " " },
+                    { src: "11.JPG", title: " " },
+                    { src: "12.JPG", title: " " },
+                    { src: "13.JPG", title: " " },
+                    { src: "14.JPG", title: " " },
+                    { src: "15.JPG", title: " " },
+                    { src: "16.JPG", title: " " },
+                    { src: "17.JPG", title: " " },
+                    { src: "18.JPG", title: " " },
+                    { src: "19.JPG", title: " " },
+                    { src: "1.JPG", title: " " },
+                    { src: "2.JPG", title: " " },
+                ]
+            },
+            educational: {
+                title: "Inaugural Function",
+                images: [
+                    { src: "20.JPG", title: "" },
+                    { src: "21.JPG", title: "" },{ src: "22.JPG", title: "" },
+                    { src: "23.JPG", title: "" },
+                    { src: "24.JPG", title: "" },
+                    { src: "25.JPG", title: "" },
+                    { src: "26.JPG", title: "" },
+                    { src: "27.JPG", title: "" },
+                    { src: "28.JPG", title: "" },
+                    { src: "29.JPG", title: "" },
+                    { src: "30.JPG", title: "" },
+                    { src: "31.JPG", title: "" },
+                    { src: "32.JPG", title: "" },
+                    { src: "33.JPG", title: "" },
+                    { src: "34.JPG", title: "" },
+                    { src: "35.JPG", title: "" },
+                    { src: "36.JPG", title: "" },
+                    { src: "37.JPG", title: "" },
+                    { src: "38.JPG", title: "" },
+                    { src: "39.JPG", title: "" },
+                    { src: "40.JPG", title: "" },
+                    { src: "41.JPG", title: "" },
+                    { src: "42.JPG", title: "" },
+                    { src: "43.JPG", title: "" },
+                    { src: "44.JPG", title: "" },
+                    { src: "45.JPG", title: "" },
+                    { src: "46.JPG", title: "" },
+                    { src: "47.JPG", title: "" },
+                    { src: "48.JPG", title: "" },
+                    { src: "49.JPG", title: "" },
+                    { src: "51.JPG", title: "" },
+                     { src: "52.JPG", title: "" },
+                      { src: "53.JPG", title: "" },
+                       { src: "54.JPG", title: "" },
+                        
+                    
+                    
+                ]
+            },
+            community: {
+                title: "Community Support",
+                images: [
+                    { src: "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Healthcare Services" },
+                    { src: "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Food Distribution" },
+                    { src: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Housing Assistance" },
+                    { src: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Emergency Support" },
+                    { src: "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Social Services" },
+                    { src: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Outreach" },
+                    { src: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Welfare Programs" },
+                    { src: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Support Groups" },
+                    { src: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Care" },
+                    { src: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Assistance Programs" },
+                    { src: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Development" },
+                    { src: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Social Support" },
+                    { src: "https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Building" },
+                    { src: "https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Volunteer Services" },
+                    { src: "https://images.pexels.com/photos/2774565/pexels-photo-2774565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Events" },
+                    { src: "https://images.pexels.com/photos/1438075/pexels-photo-1438075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Support Networks" },
+                    { src: "https://images.pexels.com/photos/2043595/pexels-photo-2043595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Resources" },
+                    { src: "https://images.pexels.com/photos/1181430/pexels-photo-1181430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Welfare Support" },
+                    { src: "https://images.pexels.com/photos/2182980/pexels-photo-2182980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Unity" },
+                    { src: "https://images.pexels.com/photos/1239295/pexels-photo-1239295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Community Strength" }
+                ]
+            },
+            youth: {
+                title: "Youth Development",
+                images: [
+                    { src: "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Leadership Training" },
+                    { src: "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Sports Programs" },
+                    { src: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Mentorship Programs" },
+                    { src: "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Workshops" },
+                    { src: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Skill Building" },
+                    { src: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Empowerment" },
+                    { src: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Career Development" },
+                    { src: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Activities" },
+                    { src: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Personal Development" },
+                    { src: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Leadership" },
+                    { src: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Programs" },
+                    { src: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Engagement" },
+                    { src: "https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Support" },
+                    { src: "https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Events" },
+                    { src: "https://images.pexels.com/photos/2774565/pexels-photo-2774565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Initiatives" },
+                    { src: "https://images.pexels.com/photos/1438075/pexels-photo-1438075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Opportunities" },
+                    { src: "https://images.pexels.com/photos/2043595/pexels-photo-2043595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Growth" },
+                    { src: "https://images.pexels.com/photos/1181430/pexels-photo-1181430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Excellence" },
+                    { src: "https://images.pexels.com/photos/2182980/pexels-photo-2182980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Achievement" },
+                    { src: "https://images.pexels.com/photos/1239295/pexels-photo-1239295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", title: "Youth Success" }
+                ]
+            },
+            legal: {
+                title: "Pramothsavam",
+                images: [
+                    { src: "3.JPG", title: "" },
+                    { src: "4.JPG", title: " " },
+                    { src: "5.JPG", title: " " },
+                    { src: "6.JPG", title: " " },
+                    { src: "7.JPG", title: " " },
+                    { src: "8.JPG", title: " " },
+                    { src: "9.JPG", title: " " },
+                    { src: "10.JPG", title: " " },
+                    { src: "11.JPG", title: " " },
+                    { src: "12.JPG", title: " " },
+                    { src: "13.JPG", title: " " },
+                    { src: "14.JPG", title: " " },
+                    { src: "15.JPG", title: " " },
+                    { src: "16.JPG", title: " " },
+                    { src: "17.JPG", title: " " },
+                    { src: "18.JPG", title: " " },
+                    { src: "19.JPG", title: " " },
+                    { src: "1.JPG", title: " " },
+                    { src: "2.JPG", title: " " },
+                    
+                ]
+            }
+        };
+
+        // Mobile menu functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('active');
@@ -1697,33 +2006,39 @@
         // Smooth scrolling
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const elementPosition = element.offsetTop - headerHeight - 20;
-           
-            window.scrollTo({
-                top: elementPosition,
-                behavior: 'smooth'
-            });
+            if (element) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const elementPosition = element.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         // Gallery functionality
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
             indicators.forEach(indicator => indicator.classList.remove('active'));
-           
-            slides[index].classList.add('active');
-            indicators[index].classList.add('active');
+            
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+            if (indicators[index]) {
+                indicators[index].classList.add('active');
+            }
         }
 
         function changeSlide(direction) {
             currentSlideIndex += direction;
-           
+            
             if (currentSlideIndex >= slides.length) {
                 currentSlideIndex = 0;
             } else if (currentSlideIndex < 0) {
                 currentSlideIndex = slides.length - 1;
             }
-           
+            
             showSlide(currentSlideIndex);
         }
 
@@ -1744,21 +2059,61 @@
             clearInterval(slideInterval);
         }
 
+        // Service Gallery Functions
+        function openServiceGallery(serviceType) {
+            const modal = document.getElementById('serviceGalleryModal');
+            const title = document.getElementById('serviceGalleryTitle');
+            const grid = document.getElementById('serviceGalleryGrid');
+            
+            if (!serviceGalleries[serviceType]) {
+                console.error('Service type not found:', serviceType);
+                return;
+            }
+            
+            const gallery = serviceGalleries[serviceType];
+            title.textContent = gallery.title;
+            
+            // Clear existing content
+            grid.innerHTML = '';
+            
+            // Add gallery items - REMOVED onclick handler for full screen images
+            gallery.images.forEach((image) => {
+                const item = document.createElement('div');
+                item.className = 'service-gallery-item';
+                item.innerHTML = `
+                    <img src="${image.src}" alt="${image.title}">
+                    <div class="service-gallery-item-overlay">
+                        <h4>${image.title}</h4>
+                    </div>
+                `;
+                grid.appendChild(item); 
+            });
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceGallery() {
+            const modal = document.getElementById('serviceGalleryModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // Members carousel functionality
         function updateMembersPerView() {
             if (window.innerWidth < 769) {
-                membersPerView = 1; // Mobile: 1 member at a time
+                membersPerView = 1;
             } else if (window.innerWidth < 1024) {
-                membersPerView = 3; // Tablet: 3 members
+                membersPerView = 3;
             } else {
-                membersPerView = 4; // Desktop: 4 members
+                membersPerView = 4;
             }
         }
 
         function updateCarouselIndicators() {
             const indicatorsContainer = document.getElementById('carouselIndicators');
             const totalSlides = Math.ceil(memberCards.length / membersPerView);
-           
+            
             indicatorsContainer.innerHTML = '';
             for (let i = 0; i < totalSlides; i++) {
                 const indicator = document.createElement('span');
@@ -1772,19 +2127,16 @@
             let cardWidth, gap;
             
             if (window.innerWidth < 769) {
-                // Mobile: full width single member
                 cardWidth = membersContainer.offsetWidth;
                 gap = 0;
             } else {
-                // Desktop: multiple members
-                cardWidth = 200 + 32; // card width + gap
+                cardWidth = 200 + 32;
                 gap = 0;
             }
             
             const offset = currentCarouselIndex * (cardWidth + gap);
             membersContainer.style.transform = `translateX(-${offset}px)`;
-           
-            // Update indicators
+            
             const indicators = document.querySelectorAll('.carousel-indicator');
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === currentCarouselIndex);
@@ -1794,13 +2146,13 @@
         function moveCarousel(direction) {
             const totalSlides = Math.ceil(memberCards.length / membersPerView);
             currentCarouselIndex += direction;
-           
+            
             if (currentCarouselIndex >= totalSlides) {
                 currentCarouselIndex = 0;
             } else if (currentCarouselIndex < 0) {
                 currentCarouselIndex = totalSlides - 1;
             }
-           
+            
             updateCarouselPosition();
         }
 
@@ -1847,10 +2199,10 @@
         // Form submission
         function submitForm(event) {
             event.preventDefault();
-           
+            
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
-           
+            
             const subject = 'Membership Application - Kammavar Cultural Academy';
             const body = `
 Name: ${data.name}
@@ -1859,10 +2211,10 @@ Address: ${data.address}
 Mobile: ${data.mobile}
 Message: ${data.message}
             `.trim();
-           
+            
             const mailtoLink = `mailto:kcafoundation2024@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             window.location.href = mailtoLink;
-           
+            
             alert('Thank you for your application! Your default email client will open to send the message.');
             event.target.reset();
         }
@@ -1878,11 +2230,11 @@ Message: ${data.message}
         // Scroll animations
         function handleScrollAnimations() {
             const elements = document.querySelectorAll('.fade-in');
-           
+            
             elements.forEach((element, index) => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-               
+                
                 if (elementTop < window.innerHeight - elementVisible) {
                     if (!element.classList.contains('animated')) {
                         element.style.animationDelay = `${index * 0.1}s`;
@@ -1910,7 +2262,24 @@ Message: ${data.message}
             updateCarouselIndicators();
             updateCarouselPosition();
             startCarouselAutoPlay();
-           
+            
+            // FIXED: Add click event listeners to gallery slides
+            slides.forEach((slide) => {
+                console.log(slide)
+                slide.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const currentSlide = document.querySelector(".gallery-slide.active")
+                    const serviceType = currentSlide.getAttribute('data-service');
+                    console.log(e.currentTarget)
+                    
+                    if (serviceType && serviceGalleries[serviceType]) {
+                        openServiceGallery(serviceType);
+                    }
+                });
+            });
+            
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1919,12 +2288,12 @@ Message: ${data.message}
                     if (target) {
                         const headerHeight = document.querySelector('.header').offsetHeight;
                         const elementPosition = target.offsetTop - headerHeight - 20;
-                       
+                        
                         window.scrollTo({
                             top: elementPosition,
                             behavior: 'smooth'
                         });
-                       
+                        
                         closeMobileMenu();
                     }
                 });
@@ -1951,12 +2320,19 @@ Message: ${data.message}
                 }
             });
 
+            // Service gallery modal click outside to close
+            document.getElementById('serviceGalleryModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeServiceGallery();
+                }
+            });
+
             // Close mobile menu when clicking outside
             document.addEventListener('click', function(e) {
                 const mobileMenu = document.getElementById('mobileMenu');
                 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-               
-                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                
+                if (mobileMenu && mobileMenuBtn && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     closeMobileMenu();
                 }
             });
@@ -1965,6 +2341,7 @@ Message: ${data.message}
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeModal();
+                    closeServiceGallery();
                     closeMobileMenu();
                 } else if (e.key === 'ArrowLeft') {
                     changeSlide(-1);
@@ -1975,28 +2352,24 @@ Message: ${data.message}
                 }
             });
         });
-
-       
+        
         window.addEventListener('scroll', function() {
             handleScrollAnimations();
             handleScrollTop();
         });
-
-     
+        
         window.addEventListener('resize', function() {
             closeMobileMenu();
             updateMembersPerView();
             updateCarouselIndicators();
             updateCarouselPosition();
         });
-
         
         document.addEventListener('contextmenu', function(e) {
             if (e.target.tagName === 'IMG') {
                 e.preventDefault();
             }
         });
-        
     </script>
 </body>
 </html>
